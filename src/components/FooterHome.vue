@@ -23,7 +23,6 @@
     align-items: center;
     bottom: 0;
     width: 100%;
-    position: fixed;
 }
 
 #footer p{

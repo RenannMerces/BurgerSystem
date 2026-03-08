@@ -1,6 +1,6 @@
 <template>
     <div id="nav">
-        <router-link id="logo-url" to="/"><img id="logo" :src="logo" :alt="alt" ></router-link> |
+        <router-link id="logo-url" to="/"><img id="logo" :src="logo" :alt="alt" ></router-link>
         <router-link to="/">Home</router-link>
         <router-link to="/pedidos">Pedidos</router-link>
     </div>
