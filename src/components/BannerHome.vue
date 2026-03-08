@@ -24,7 +24,6 @@
     }
 
     #main-banner h1{
-        
         color: #fcba26;
         font-size: 60px;
         margin-left: 50px;
