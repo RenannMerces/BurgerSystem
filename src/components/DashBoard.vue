@@ -1,0 +1,169 @@
+<template>
+    <div id="burger-table">
+        <table>
+            <thead id="burger-table-heading">
+                <tr>
+                    <th class="order-id">#</th>
+                    <th>Cliente</th>
+                    <th>Pão</th>
+                    <th>Carne</th>
+                    <th>Opcionais</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="burger-table-rows">
+                <tr class="burger-table-row">
+                    <td class="order-number">1</td>
+                    <td>Renan</td>
+                    <td>Brioche</td>
+                    <td>Carne bovina</td>
+
+                    <!-- Opcionais -->
+                    <td>
+                        <ul>
+                            <li>Queijo</li>
+                            <li>Bacon</li>
+                            <li>Alface</li>
+                        </ul>
+                    </td>
+
+                    <!-- Status -->
+                    <td>
+                        <select name="status" class="status">
+                            <option value="solicitado">Solicitado</option>
+                            <option value="preparando">Preparando</option>
+                            <option value="pronto">Pronto</option>
+                            <option value="entregue">Entregue</option>
+                        </select>
+                    </td>
+
+                    <td>
+                        <button >Editar</button>
+                        <button class="delete-btn">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<script>
+
+export default {
+  name: 'DashBoard',
+  data() {
+    return {
+     
+    };
+  },
+  methods: {
+    
+  }
+};
+
+
+</script>
+
+<style scoped>
+
+    #burger-table{
+        max-width: 1100px;
+        margin: 60px auto;
+        padding: 20px;
+    }
+
+    table{
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+    #burger-table-heading{
+        background: #111;
+    }
+
+    th{
+        color: #fff;
+        padding: 16px 18px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+    .burger-table-row{
+        background: #ffffff;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+        transition: 0.2s;
+    }
+
+    .burger-table-row:hover{
+        transform: scale(1.01);
+        box-shadow: 0 5px 14px rgba(0,0,0,0.1);
+    }
+
+    td{
+        padding: 18px;
+        font-size: 14px;
+        color: #444;
+    }
+
+    .order-number{
+        font-weight: bold;
+        color: #222;
+    }
+
+    ul{
+        margin: 0;
+        padding-left: 18px;
+    }
+
+    li{
+        font-size: 13px;
+        margin-bottom: 4px;
+    }
+
+    .status{
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        background: #f8f8f8;
+        font-size: 13px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .status:hover{
+        border-color: #999;
+    }
+
+    button{
+        padding: 8px 14px;
+        margin-right: 6px;
+        border: none;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        background: #ffc107;
+        color: #000;
+        transition: 0.2s;
+    }
+
+    button:hover{
+        transform: translateY(-1px);
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    .delete-btn{
+        background: #e63946;
+        color: white;
+    }
+
+    .delete-btn:hover{
+        background: #c1121f;
+    }
+
+</style>
