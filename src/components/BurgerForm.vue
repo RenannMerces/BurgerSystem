@@ -1,5 +1,6 @@
 <template>
     <div>
+    <MessageForm  :msg="msg" v-show="msg"/>
         <div>
             <form id="burger-form" @submit="CreateBurger">
 
@@ -35,13 +36,14 @@
                 <div class="input-container">
                     <input class="submit-btn" type="submit" name="submit-btn" value="Criar meu Burger!" id="">
                 </div>
-
             </form>
         </div>
     </div>
 </template>
 
 <script>
+
+import MessageForm from './MessageForm.vue';
 
     export default {
         name: 'BurgerForm',
@@ -59,6 +61,8 @@
                 opcionais: [],
                 msg: null
             }
+        }, components: {
+            MessageForm
         },
         methods:{
             async getIndegredients(){
@@ -116,7 +120,13 @@
                 const res = await req.json();
 
                 // colocar uma msg de sistema para o usuário, dizendo que o burger foi criado com sucesso ou se houve algum erro
+                this.msg = `Pedido N° ${res.id} criado com sucesso!`;
 
+                //limpar msg
+
+                setTimeout(() => {
+                    this.msg = null;
+                }, 5000);
 
                 // limpar os campos do formulário após o envio
                 this.name = "";
