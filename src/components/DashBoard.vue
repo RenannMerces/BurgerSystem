@@ -31,17 +31,16 @@
 
                     <!-- Status -->
                     <td>
-                        <select name="status" class="status">
+                        <select name="status" class="status" @change="updateBurger($event, burger.id)">
                             <option value="">Selecione</option>
-                            <option v-for="s in status" :key="s.id" value="s.tipo" :selected="burger.status == s.tipo">
+                            <option v-for="s in status" :key="s.id" :value="s.tipo" :selected="burger.status == s.tipo">
                                 {{s.tipo}}
                             </option>
                         </select>
                     </td>
 
                     <td>
-                        <button >Editar</button>
-                        <button class="delete-btn">Excluir</button>
+                        <button class="delete-btn" @click="deleteBurger(burger.id)">Excluir</button>
                     </td>
                 </tr>
             </tbody>
@@ -77,13 +76,38 @@ export default {
             const req = await fetch("http://localhost:3000/status");
             const data = await req.json();
             this.status = data;
+        },
+
+        async deleteBurger(id){
+            const req = await fetch(`http://localhost:3000/burgers/${id}`,{
+                method: "DELETE"
+            })
+
+            const res = await req.json();
+
+            // msg
+
+            this.getPedidos();
+        },
+
+        async updateBurger(event, id){
+            const option = event.target.value;
+            const dataJson = JSON.stringify({ status: option });
+            const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+                method: "PATCH",
+                headers: { "content-type": "application/json"},
+                body: dataJson
+            });
+
+            const res = await req.json();
+
+            console.log(res);
+
         }
 
     }, mounted(){
 
         this.getPedidos();
-        this.getStatus();
-
     }
 }
 
@@ -171,7 +195,6 @@ export default {
         font-size: 13px;
         font-weight: 600;
         cursor: pointer;
-        background: #ffc107;
         color: #000;
         transition: 0.2s;
     }

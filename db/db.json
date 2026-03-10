@@ -71,40 +71,6 @@
   ],
   "burgers": [
     {
-      "id": "82cb",
-      "name": "renanmerces",
-      "pao": "Pão de Hambúrguer",
-      "carne": "Hambúrguer de Carne",
-      "opcionais": [
-        "Queijo",
-        "Alface",
-        "Tomate"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "bf41",
-      "name": "Joao Kleber",
-      "pao": "Pão de Hot Dog",
-      "carne": "Hambúrguer Vegetariano",
-      "opcionais": [
-        "Bacon",
-        "Alface"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "b15f",
-      "name": "Renan Mercês",
-      "pao": "Pão de Hambúrguer",
-      "carne": "Hambúrguer de Peixe",
-      "opcionais": [
-        "Queijo",
-        "Alface"
-      ],
-      "status": "Solicitado"
-    },
-    {
       "id": "76b6",
       "name": "Bruno Mercês",
       "pao": "Pão de Batata",
@@ -113,7 +79,7 @@
         "Queijo",
         "Alface"
       ],
-      "status": "Solicitado"
+      "status": "Pronto"
     },
     {
       "id": "7f7a",
