@@ -14,28 +14,25 @@
             </thead>
 
             <tbody id="burger-table-rows">
-                <tr class="burger-table-row">
-                    <td class="order-number">1</td>
-                    <td>Renan</td>
-                    <td>Brioche</td>
-                    <td>Carne bovina</td>
+                <tr class="burger-table-row" v-for="burger in burgers" :key="burger.id">
+                    <td class="order-number">{{ burger.id }}</td>
+                    <td> {{ burger.name }} </td>
+                    <td> {{ burger.pao }} </td>
+                    <td> {{ burger.carne }} </td>
 
                     <!-- Opcionais -->
                     <td>
                         <ul>
-                            <li>Queijo</li>
-                            <li>Bacon</li>
-                            <li>Alface</li>
+                            <li v-for="(opcional, index) in burger.opcionais" :key="index">
+                                {{opcional}}
+                            </li>
                         </ul>
                     </td>
 
                     <!-- Status -->
                     <td>
                         <select name="status" class="status">
-                            <option value="solicitado">Solicitado</option>
-                            <option value="preparando">Preparando</option>
-                            <option value="pronto">Pronto</option>
-                            <option value="entregue">Entregue</option>
+                            <option value="">Selecione</option>
                         </select>
                     </td>
 
@@ -52,16 +49,34 @@
 <script>
 
 export default {
-  name: 'DashBoard',
-  data() {
-    return {
-     
-    };
-  },
-  methods: {
-    
-  }
-};
+    name: "DashBoard",
+    data(){
+        return{
+            burgers: null,
+            burger_id: null,
+            status: [],
+        }
+    },
+    methods: {
+        async getPedidos(){
+
+            const req = await fetch("http://localhost:3000/burgers")
+
+            const data = await req.json();
+
+            this.burgers = data;
+
+
+            // resgatar os status
+
+        }
+
+    }, mounted(){
+
+        this.getPedidos();
+
+    }
+}
 
 
 </script>

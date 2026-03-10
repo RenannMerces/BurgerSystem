@@ -114,6 +114,19 @@
         "Alface"
       ],
       "status": "Solicitado"
+    },
+    {
+      "id": "7f7a",
+      "name": "Neymar Junior",
+      "pao": "Pão de Hambúrguer",
+      "carne": "Hambúrguer de Peixe",
+      "opcionais": [
+        "Alface",
+        "Queijo",
+        "Bacon",
+        "Tomate"
+      ],
+      "status": "Solicitado"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
